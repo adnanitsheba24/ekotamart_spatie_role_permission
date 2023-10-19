@@ -1,0 +1,29 @@
+/* Large Screen CSS Size Start*/
+@media (max-width: 1920px){
+    .show_image_pojition {
+        padding-left: 174px;
+    }
+}
+/* Large Screen CSS Size End*/
+
+
+/* Midiam Screen CSS Size Start*/
+@media (max-width: 1366px){
+    .show_image_pojition {
+        padding-left: 61px;
+    }
+}
+/* Midiam Screen CSS Size End*/
+
+
+/* Mobile Screen CSS Size Start*/
+@media (max-width: 420px){
+    .show_image_pojition_mobile {
+        padding-left: 61px;
+    }
+}
+/* Mobile Screen CSS Size End*/
+
+
+
+
