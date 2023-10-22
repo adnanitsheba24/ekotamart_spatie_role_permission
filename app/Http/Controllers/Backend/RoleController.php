@@ -17,10 +17,14 @@ class RoleController extends Controller
         return view('backend.role_and_permission.role_view', compact('roles'));
     }
 
+
+
     // public function create()
     // {
     //     return view('admin.roles.create');
     // }
+
+
 
     public function store(Request $request)
     {
@@ -31,19 +35,25 @@ class RoleController extends Controller
         return redirect()->back()->with('message', 'Role Created successfully.');
     }
 
+
+
     public function edit(Role $role)
     {
         $permissions = Permission::all();
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('backend.role_and_permission.role_edit', compact('role', 'permissions'));
     }
+
+
 
     public function update(Request $request, Role $role)
     {
-        $validated = $request->validate(['name' => ['required', 'min:3']]);
+        $validated = $request->validate(['name' => ['required', 'unique:roles']]);
         $role->update($validated);
 
-        return to_route('admin.roles.index')->with('message', 'Role Updated successfully.');
+        return to_route('roles.index')->with('message', 'Role Updated successfully.');
     }
+
+
 
     public function destroy(Role $role)
     {
@@ -51,6 +61,8 @@ class RoleController extends Controller
 
         return back()->with('message', 'Role deleted.');
     }
+
+
 
     public function givePermission(Request $request, Role $role)
     {
@@ -60,6 +72,8 @@ class RoleController extends Controller
         $role->givePermissionTo($request->permission);
         return back()->with('message', 'Permission added.');
     }
+    
+
 
     public function revokePermission(Role $role, Permission $permission)
     {
@@ -69,4 +83,6 @@ class RoleController extends Controller
         }
         return back()->with('message', 'Permission not exists.');
     }
+
+
 }

@@ -88,18 +88,7 @@
         <!-- /.row -->
       </section>
       <!-- /.content -->
-    
     </div>
-
-
-    @push('js')
-
-        <script>
-            image_validation("#upload_file", "#show_image", "#msg_v", '500', "Photo brand size can't larger than 500 kb")
-        </script>
-
-    @endpush
-
 
 @endsection
 

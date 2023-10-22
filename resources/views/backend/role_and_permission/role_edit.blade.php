@@ -16,56 +16,70 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="table-responsive">
-                        <form method="post" action="{{ route('role.update', $brand->id) }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('role.update', $role->id) }}">
                             @csrf
 
-                            <input type="hidden" name="id" value="{{ $brand->id }}">
-                            <input type="hidden" name="old_image" value="{{ $brand->brand_image }}">
-
-                            <div class="form-group d-flex justify-content-center">
+                            <div class="form-group">
                                 <div class="controls col-md-6">
-                                    <h5 class="head-text">Brand Name English<span class="text-danger">*</span></h5>
-                                    <input type="text" name="brand_name_en" value="{{ $brand->brand_name_en }}" class="form-control">
-                                    @error ('brand_name_en')
+                                    <h5 class="head-text">Role Name<span class="text-danger">*</span></h5>
+                                    <input id="name" type="text" name="name" value="{{ $role->name }}" class="form-control">
+                                    @error ('name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="form-group d-flex justify-content-center">
-                                <div class="controls col-md-6">
-                                    <h5 class="head-text">Brand Name Bangla<span class="text-danger">*</span></h5>
-                                    <input type="text" name="brand_name_bn" value="{{ $brand->brand_name_bn }}" class="form-control">
-                                    @error ('brand_name_bn') 
-                                        <span class="text-danger">{{ $message }} </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group d-flex justify-content-center">
-                                <div class="controls col-md-6">
-                                    <h5 class="head-text">Brand Image<span class="text-danger"></span></h5>
-                                    <input type="file" name="brand_image" class="form-control"  id="upload_file">
-                                    <span class="text-danger" id="msg_v">@error ('brand_image') {{ $message }} @enderror </span>
-                                    
-                                    <br>
-                                    <div class="col-md-6 mt-5">
-                                        <img loading="lazy" id="show_image" style="width:100px; height:100px;" src="{{ (!empty($brand->brand_image))?
-                                        URL::to('storage/brand', $brand->brand_image) : url('upload/no_image.jpg') }}" alt="Brand Image">
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <br>
                             
-                            <div class="form-group d-flex justify-content-center">
+                            <div class="form-group">
                                 <div class="controls col-md-6">
                                     <input type="submit" class="btn btn-rounded btn-info float-right mb-5 mt-5" value="Update">
                                 </div>
                             </div>
 
-                       </form>
+                        </form>
                     </div>
+
+                    <div>
+                        <h2 class="head-text">Role Permissions</h2>
+                        <div>
+                            @if ($role->permissions)
+                                @foreach ($role->permissions as $role_permission)
+                                    <form method="post" action="{{ route('roles.permissions.revoke', [$role->id, $role_permission->id]) }}" onsubmit="return confirm('Are you sure?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-rounded btn-success" type="submit">{{ $role_permission->name }} </button>
+                                    </form>
+                                @endforeach
+                            @endif
+                        </div>
+                        <div>
+                            <div class="table-responsive">
+                                <form method="post" action="{{ route('roles.permissions', $role->id) }}" >
+                                    @csrf
+        
+                                    <div class="form-group col-md-6">
+                                            <label class="head-text" for="permission">Permission</label><br>
+                                            <select id="permission" name="permission" class="form-control form-select" autocomplete="permission-name" aria-label="Default select example">
+                                                @foreach ($permissions as $permission)
+                                                    <option value="{{ $permission->name }}">{{ $permission->name }}</option>
+                                                @endforeach
+                                            </select>
+
+                                            @error ('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                    </div>
+                                    
+                                    <div class="form-group ">
+                                        <div class="controls col-md-6">
+                                            <input type="submit" class="btn btn-rounded btn-success float-right mb-5 mt-5" value="Assign">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
                 <!-- /.box-body -->
                 </div>
@@ -76,17 +90,6 @@
         <!-- /.row -->
       </section>
       <!-- /.content -->
-    
     </div>
-
-
-    @push('js')
-
-        <script>
-            image_validation("#upload_file", "#show_image", "#msg_v", '500', "Photo brand size can't larger than 500 kb")
-        </script>
-
-    @endpush
-
 
 @endsection
