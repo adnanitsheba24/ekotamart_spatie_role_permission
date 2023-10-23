@@ -59,7 +59,6 @@ use App\Http\Controllers\User\UserController as UserUserController;
 
 // Adnan 
 
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -432,7 +431,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
 
         
         Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');
-        Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permissions.revoke');
+        Route::get('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permissions.revoke');
         
         Route::post('/permissions/{permission}/roles', [PermissionController::class, 'assignRole'])->name('permissions.roles');
         Route::delete('/permissions/{permission}/roles/{role}', [PermissionController::class, 'removeRole'])->name('permissions.roles.remove');
