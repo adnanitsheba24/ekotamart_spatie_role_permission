@@ -53,11 +53,6 @@
             </div>
 
 
-
-
-
-
-
             <div class="col-12">
                 <div class="box">
                 <div class="box-header with-border">
@@ -118,12 +113,6 @@
                 </div>
                 <!-- /.box -->         
             </div>
-
-
-
-
-
-
 
 
         </div>
