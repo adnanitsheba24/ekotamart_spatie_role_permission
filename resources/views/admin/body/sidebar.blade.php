@@ -18,7 +18,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
         .theme-primary.dark-skin .sidebar-menu > li.active.treeview.treeview > a {
             background: linear-gradient(45deg, #0ff769, #1544f7);
         }
-        
+
     </style>
 {{-- @endpush --}}
 
@@ -47,23 +47,26 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
             </div>
         </div>
 
+
+
         <!-- sidebar menu-->
         <ul class="sidebar-menu" data-widget="tree" style="background-color: #98EECC">
 
-            
+
+
             <li class="{{ ($route == 'dashboard') ? 'active' : '' }}">
                 <a href="{{ url('admin/dashboard') }}">
                     <i data-feather="pie-chart" style="color: black;"></i>
                     <span class="head-text">Dashboard</span>
                 </a>
             </li>
+            
+            <li id="selectedItem" class="" style="display: none;">
+            </li>
 
-
-
-            <li class="treeview {{ ($prefix == '/rolepermission') ? 'active' : '' }}" onclick="scroll(0, 1000);">
+            <li class="treeview {{ ($prefix == '/rolepermission') ? 'active' : '' }}">
                 <a href="#">
-                    {{-- <i data-feather="file"></i> --}}
-                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/nolan/64/gear.png" alt="gear"/>
+                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/nolan/64/gear.png" alt="gear" />
                     <span class="head-text">Roles & Permission</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
@@ -74,13 +77,12 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
                     <li class="{{ ($route == 'permission.index') ? 'active' : '' }}"><a href="{{ route('permission.index') }}"><i class="ti-more"></i>Permissions Setting</a></li>
                 </ul>
             </li>
-
-
+            
 
 
             <li class="treeview {{ ($prefix == '/brand') ? 'active' : '' }}">
                 <a href="#">
-                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-brand-public-relations-agency-flaticons-lineal-color-flat-icons.png" alt="external-brand-public-relations-agency-flaticons-lineal-color-flat-icons"/>
+                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-brand-public-relations-agency-flaticons-lineal-color-flat-icons.png" alt="external-brand-public-relations-agency-flaticons-lineal-color-flat-icons" />
                     <span class="head-text"> Brands</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
@@ -90,22 +92,21 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
                     <li class="{{ ($route == 'all.brand') ? 'active' : '' }}"><a href="{{ route('all.brand') }}"><i class="ti-more"></i>All Brand</a></li>
                 </ul>
             </li>
-
-
+            
 
 
             <li class="treeview {{ ($prefix == '/category') ? 'active' : '' }}">
-                <a href=""> 
-                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/dusk/64/diversity.png" alt="diversity"/>
+                <a href="">
+                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/dusk/64/diversity.png" alt="diversity" />
                     <span class="head-text">Category</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu" > 
-                    <li class="{{ ($route == 'all.category') ? 'active' : '' }}"><a href="{{ route('all.category') }}"><i class="ti-more"></i>All Cetegory</a></li>
-                    <li class="{{ ($route == 'all.subcategory') ? 'active' : '' }}"><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All SubCetegory</a></li>
-                    <li class="{{ ($route == 'all.subsubcategory') ? 'active' : '' }}"><a href="{{ route('all.subsubcategory') }}"><i class="ti-more"></i>All Sub->SubCetegory</a></li>
+                <ul class="treeview-menu">
+                    <li class="{{ ($route == 'all.category') ? 'active' : '' }}"><a href="{{ route('all.category') }}"><i class="ti-more"></i>All Category</a></li>
+                    <li class="{{ ($route == 'all.subcategory') ? 'active' : '' }}"><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All SubCategory</a></li>
+                    <li class="{{ ($route == 'all.subsubcategory') ? 'active' : '' }}"><a href="{{ route('all.subsubcategory') }}"><i class="ti-more"></i>All Sub->SubCategory</a></li>
                 </ul>
             </li>
 
@@ -143,7 +144,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/stock') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/color/48/business-report.png" alt="business-report"/>
                     <span class="head-text">Manage Stock</span>
                     <span class="pull-right-container">
@@ -159,7 +160,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/coupons') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/external-wanicon-flat-wanicon/64/external-coupon-cyber-monday-wanicon-flat-wanicon.png" alt="external-coupon-cyber-monday-wanicon-flat-wanicon"/>
                     <span class="head-text">Coupons</span>
                     <span class="pull-right-container">
@@ -174,7 +175,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/slider') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/water-color/50/sorting-options.png" alt="sorting-options"/>
                     <span class="head-text">Manage Slider</span>
                     <span class="pull-right-container">
@@ -189,26 +190,10 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
             </li>
 
 
-
-            {{-- <li class="treeview {{ ($prefix == '/category_slider') ? 'active' : '' }}">
-                <a href="#">
-                    <img width="20" height="20" src="https://img.icons8.com/stencil/32/sorting-options.png" alt="sorting-options"/>
-                    <span class="head-text">Category Slider</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="{{ ($route == 'manage.category-slider') ? 'active' : '' }}"><a href="{{ route('manage.category-slider') }}"><i class="ti-more"></i>Manage Category Slider</a></li>
-                </ul>
-            </li> --}}
-
-
-
             <li class="header nav-small-cap head-text">User Interface</li>
 
             <li class="treeview {{ ($prefix == '/alluser') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/neon/96/user.png" alt="user"/>
                     <span class="head-text">All Users</span>
                     <span class="pull-right-container">
@@ -223,7 +208,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/orders') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/external-itim2101-blue-itim2101/64/external-delivery-box-shopping-and-ecommerce-itim2101-blue-itim2101.png" alt="external-delivery-box-shopping-and-ecommerce-itim2101-blue-itim2101"/>
                     <span class="head-text">Orders</span>
                     <span class="pull-right-container">
@@ -244,7 +229,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/return') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/nolan/64/return.png" alt="return"/>
                     <span class="head-text">Return Order</span>
                     <span class="pull-right-container">
@@ -261,8 +246,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/reports') ? 'active' : '' }}">
-                <a href="#">
-                    {{-- <i data-feather="file"></i> --}}
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/color/48/business-report.png" alt="business-report"/>
                     <span class="head-text">All Reports</span>
                     <span class="pull-right-container">
@@ -277,8 +261,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/shipping') ? 'active' : '' }}">
-                <a href="#">
-                    {{-- <i data-feather="file"></i> --}}
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/color/48/in-transit--v1.png" alt="in-transit--v1"/>
                     <span class="head-text">Shipping Area</span>
                     <span class="pull-right-container">
@@ -298,7 +281,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/product_units') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/color/48/blog.png" alt="blog"/>
                     <span class="head-text">Manage Product Units</span>
                     <span class="pull-right-container">
@@ -312,7 +295,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/blog') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/color/48/blog.png" alt="blog"/>
                     <span class="head-text">Manage Blog</span>
                     <span class="pull-right-container">
@@ -329,7 +312,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/sidebar') ? 'active' : '' }}">
-                <a href="#">
+                <a href="">
                     <img loading="lazy" width="20" height="20" src="https://img.icons8.com/dotty/80/sidebar-menu.png" alt="sidebar-menu"/>
                     <span class="head-text">Manage Sidebar</span>
                     <span class="pull-right-container">
@@ -345,38 +328,38 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
             <li class="treeview {{ ($prefix == '/book_type') ? 'active' : '' }}">
-                <a href=""> 
-                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/emoji/48/books-emoji.png" alt="books-emoji"/>
+                <a href="">
+                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/emoji/48/books-emoji.png" alt="books-emoji" />
                     <span class="head-text">Manage Book-Type</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu" > 
+                <ul class="treeview-menu">
                     <li class="{{ ($route == 'all.book-type') ? 'active' : '' }}"><a href="{{ route('all.book-type') }}"><i class="ti-more"></i>All Book-Type</a></li>
                 </ul>
             </li>
+        
 
 
             <li class="treeview {{ ($prefix == '/publication') ? 'active' : '' }}">
-                <a href=""> 
-                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/color-glass/48/publication.png" alt="publication"/>
+                <a href="">
+                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/color-glass/48/publication.png" alt="publication" />
                     <span class="head-text">Manage Publication</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu" > 
+                <ul class="treeview-menu">
                     <li class="{{ ($route == 'all.publication') ? 'active' : '' }}"><a href="{{ route('all.publication') }}"><i class="ti-more"></i>All Publication</a></li>
                 </ul>
             </li>
 
 
-
-            <li class="treeview {{ ($prefix == '/setting') ? 'active' : '' }}" onclick="scroll(0, 1000);">
+        
+            <li class="treeview {{ ($prefix == '/setting') ? 'active' : '' }}">
                 <a href="#">
-                    {{-- <i data-feather="file"></i> --}}
-                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/nolan/64/gear.png" alt="gear"/>
+                    <img loading="lazy" width="20" height="20" src="https://img.icons8.com/nolan/64/gear.png" alt="gear" />
                     <span class="head-text">Manage Setting</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
@@ -387,8 +370,6 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
                     <li class="{{ ($route == 'site.setting') ? 'active' : '' }}"><a href="{{ route('site.setting') }}"><i class="ti-more"></i>Site Setting</a></li>
                 </ul>
             </li>
-            
-
 
 
         </ul>
@@ -411,12 +392,8 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
 
 
 
-
-
-
-
 {{-- Sidebar active li Js Start --}}
-    @push('js')
+    {{-- @push('js')
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const sidebar = document.querySelector('.sidebar');
@@ -436,5 +413,51 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
                 });
             });
         </script>
-    @endpush
+    @endpush --}}
+{{-- Sidebar active li Js End --}}
+
+
+
+{{-- Sidebar active li Js Start --}}
+@push('js')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const listItems = document.querySelectorAll('.sidebar li');
+
+            listItems.forEach(function(item, index) {
+                item.addEventListener('click', function() {
+                    // Add the 'active' class to the clicked item
+                    listItems.forEach(function(li) {
+                        li.classList.remove('active');
+                    });
+                    item.classList.add('active');
+                    item.scrollIntoView();
+                    testSleep();
+                });
+            });
+        });
+
+        var testSleep = function() {
+            setTimeout(function() {
+                var elementsWithDisplayNone = document.querySelectorAll('[style*="display: none;"]');
+                elementsWithDisplayNone.forEach(function(element) {
+                    // Change style.display to "block"
+                    element.style.display = "block";
+                });
+                const listItems = document.querySelector('li.active.treeview.menu-open');
+                const toReplaceItems = document.getElementById('selectedItem');
+                toReplaceItems.style.display = "block";
+                toReplaceItems.classList.add('active');
+                toReplaceItems.classList.add('treeview');
+                toReplaceItems.classList.add('menu-open');
+                toReplaceItems.innerHTML = listItems.innerHTML;
+                listItems.style.display = "none";
+
+            }, 800);
+        }
+        testSleep();
+    </script>
+@endpush
 {{-- Sidebar active li Js End --}}

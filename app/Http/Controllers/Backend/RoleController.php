@@ -67,21 +67,53 @@ class RoleController extends Controller
     public function givePermission(Request $request, Role $role)
     {
         if($role->hasPermissionTo($request->permission)){
-            return back()->with('message', 'Permission exists.');
+            $notification = array(
+                'message' => 'Permission exists.',
+                'alert-type' => 'warning'
+            );
+            return redirect()->back()->with($notification);
+            // return back()->with('message', 'Permission exists.');
         }
         $role->givePermissionTo($request->permission);
-        return back()->with('message', 'Permission added.');
+        $notification = array(
+            'message' => 'Permission added.',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+        // return back()->with('message', 'Permission added.');
     }
     
 
 
+    // public function revokePermission(Role $role, Permission $permission)
+    // {
+    //     if($role->hasPermissionTo($permission)){
+    //         $role->revokePermissionTo($permission);
+    //         return back()->with('message', 'Permission revoked.');
+    //     }
+    //     return back()->with('message', 'Permission not exists.');
+    // }
+
+
     public function revokePermission(Role $role, Permission $permission)
     {
-        if($role->hasPermissionTo($permission)){
+        if ($role->hasPermissionTo($permission)) {
             $role->revokePermissionTo($permission);
-            return back()->with('message', 'Permission revoked.');
+            $notification = array(
+                'message' => 'Permission revoked.',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+            // return redirect()->back()->with('message', 'Permission revoked.');
         }
-        return back()->with('message', 'Permission not exists.');
+
+        $notification = array(
+            'message' => 'Permission does not exist',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+
+        // return redirect()->back()->with('message', 'Permission does not exist.');
     }
 
 
