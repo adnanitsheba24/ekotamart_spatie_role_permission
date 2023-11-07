@@ -455,7 +455,7 @@ linear-gradient(45deg, #0ff769, #1544f7) --}}
                 toReplaceItems.innerHTML = listItems.innerHTML;
                 listItems.style.display = "none";
 
-            }, 800);
+            }, 1000);
         }
         testSleep();
     </script>
